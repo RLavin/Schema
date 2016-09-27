@@ -1,0 +1,29 @@
+Homework 9-27-16
+
+
+CREATE TABLE IF NOT EXISTS users ( 
+use_id IDENTITY,
+use_firstname VARCHAR,
+use_lastname VARCHAR,
+use_email VARCHAR, 
+use_password VARCHAR,
+ use_login VARCHAR UNIQUE )
+
+
+
+CREATE TABLE IF NOT EXISTS blogs (
+blo_id IDENTITY,
+blo_title VARCHAR, 
+blo_date INT,
+blo_use_id INT, 
+FOREIGN KEY (blo_use_id) 
+REFERENCES users(use_id)) 
+
+CREATE TABLE IF NOT EXISTS entries (
+ent_id IDENTITY,
+ent_title VARCHAR, 
+ent_text VARCHAR, 
+ent_date INT,
+ent_blo_id INT,
+FOREIGN KEY (ent_blo_id) 
+REFERENCES blogs(blo_id)) 
